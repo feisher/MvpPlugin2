@@ -1,0 +1,12 @@
+package &package&;
+
+import android.content.Context;
+import &mvp&.BasePresenterImpl;
+/**
+* explin: 复杂逻辑和联网请求代码
+* auther: feisher(458079442@qq.com)
+* create by 2018/5/14/014 13:19
+*/
+public class &Presenter& extends BasePresenterImpl<&Contract&.View> implements &Contract&.Presenter{
+    
+}

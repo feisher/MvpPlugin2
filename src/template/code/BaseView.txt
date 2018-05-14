@@ -1,0 +1,10 @@
+package &package&;
+import android.content.Context;
+/**
+* explin: 
+* auther:Administrator & feisher(458079442@qq.com)
+* create by 2018/5/14/014 14:14
+*/
+public interface BaseView {
+     Context getContext();
+}

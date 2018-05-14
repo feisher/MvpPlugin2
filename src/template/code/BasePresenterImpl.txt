@@ -1,0 +1,25 @@
+package &package&;
+/**
+* explin: 改写MVPPlus插件presenter基类实现和rxJava 结合
+* auther:Administrator & feisher(458079442@qq.com)
+* create by 2018/5/14/014 12:58
+*/
+public class BasePresenterImpl<V extends BaseView> implements BasePresenter<V>{
+    protected V mView;
+    Context mContext;
+    Reference<V> viewRef;
+    @Override
+    public void attachView(V view) {
+        viewRef = WeakReference(view)
+         mView = viewRef!!.get() as V
+         mContext = view.context()!!
+    }
+
+    @Override
+    public void detachView() {
+       if (viewRef != null) {
+         viewRef!!.clear()
+         viewRef = null
+        }
+    }
+}
