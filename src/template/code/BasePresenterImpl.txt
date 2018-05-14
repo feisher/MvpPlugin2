@@ -1,4 +1,6 @@
 package &package&;
+import android.content.Context;
+import java.lang.ref.WeakReference;
 /**
 * explin: 改写MVPPlus插件presenter基类实现和rxJava 结合
 * auther:Administrator & feisher(458079442@qq.com)
@@ -9,17 +11,16 @@ public class BasePresenterImpl<V extends BaseView> implements BasePresenter<V>{
     Context mContext;
     Reference<V> viewRef;
     @Override
-    public void attachView(V view) {
-        viewRef = WeakReference(view)
-         mView = viewRef!!.get() as V
-         mContext = view.context()!!
-    }
-
-    @Override
-    public void detachView() {
-       if (viewRef != null) {
-         viewRef!!.clear()
-         viewRef = null
-        }
-    }
+       public void attachView(V view) {
+           viewRef= new WeakReference<V>(view);
+           mView = (V) viewRef.get();
+           mContext = view.getContext();
+       }
+       @Override
+       public void detachView() {
+          if (viewRef != null) {
+            viewRef.clear();
+            viewRef = null;
+           }
+       }
 }
